@@ -1,76 +1,40 @@
 <template>
   <div class="home">
-    <button @click="dereaseCounter" class="btn">-</button>
-    <span class="counter">{{ counter }}</span>
-    <button @click="increaseCounter" class="btn">+</button>
+    <h1>{{ AppTilte }}</h1>
+    <h3>{{ counterData.title }}:</h3>
+    <div>
+      <button @click="dereaseCounter(2)" class="btn">--</button>
+      <button @click="dereaseCounter(1)" class="btn">-</button>
+      <span class="counter">{{ counterData.count }}</span>
+      <button @click="increaseCounter(1)" class="btn">+</button>
+      <button @click="increaseCounter(2)" class="btn">++</button>
+    </div>
+    <div class="editor">
+      <h4>Edit</h4>
+      <input v-model="counterData.title" type="text" value="" />
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
-const counter = ref(0);
+import { reactive } from "vue";
 
-const increaseCounter = () => {
-  counter.value++;
+const AppTilte = "Test";
+
+const increaseCounter = (amount) => {
+  counterData.count = counterData.count + amount;
 };
 
-const dereaseCounter = () => {
-  counter.value--;
+const dereaseCounter = (amount) => {
+  counterData.count = counterData.count - amount;
 };
+
+//Variable
+const counterData = reactive({
+  count: 0,
+  title: "Momojojo",
+});
 </script>
-
-<!-- <script>
-import { ref } from 'vue';
-
-export default {
-  setup() {
-    const counter = ref(0)
-
-    const increaseCounter = () => {
-      counter.value++
-
-    }
-
-    const dereaseCounter = () => {
-      counter.value--
-
-    }
-
-    return {
-      counter, increaseCounter, dereaseCounter
-
-    }
-
-  }
-
-}  
-
-</script>
-  <script>
-export default
-  {
-    data() {
-      return {
-        counter: 0
-
-      }
-
-
-
-    }, methods: {
-
-      increaseCounter() {
-        this.counter++
-
-      },
-      dereaseCounter() {
-        this.counter--
-
-      }
-    }
-
-  }
-</script> -->
 
 <style>
 .home {
@@ -82,5 +46,10 @@ export default
 .counter {
   font-size: 40px;
   margin: 10px;
+}
+
+/**/
+.editor {
+  margin-top: 60px;
 }
 </style>
