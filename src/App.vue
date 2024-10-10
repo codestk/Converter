@@ -1,24 +1,15 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterLink, RouterView } from "vue-router";
+import HelloWorld from "./components/HelloWorld.vue";
 </script>
 
 <template>
   <nav>
     <RouterLink to="/">Home222</RouterLink>
-    <RouterLink to="/about">About22</RouterLink>
+    <RouterLink to="/post">Post</RouterLink>
   </nav>
-
-
-
-
-
   <RouterView />
 </template>
-
-
-
-
 
 <style scoped>
 header {
@@ -37,8 +28,6 @@ nav {
   text-align: center;
   margin-top: 2rem;
 }
-
-
 
 nav a.router-link-exact-active {
   color: var(--color-text);
