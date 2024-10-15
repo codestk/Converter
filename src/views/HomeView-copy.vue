@@ -5,19 +5,19 @@
 <template>
   <div class="home">
     <h1 ref="appTitleRef">{{ AppTitle }}</h1>
-    <h3>{{ counter.title }}:</h3>
+    <h3>{{ counterData.title }}:</h3>
     <div>
-      <button @click="counter.deceaseCounter(2)" class="btn">--</button>
-      <button @click="counter.deceaseCounter(1)" class="btn">-</button>
-      <span class="counter">{{ counter.count }}</span>
-      <button @click="counter.increaseCounter(1)" class="btn">+</button>
-      <button @click="counter.increaseCounter(2)" class="btn">++</button>
+      <button @click="deceaseCounter(2)" class="btn">--</button>
+      <button @click="deceaseCounter(1)" class="btn">-</button>
+      <span class="counter">{{ counterData.count }}</span>
+      <button @click="increaseCounter(1)" class="btn">+</button>
+      <button @click="increaseCounter(2)" class="btn">++</button>
     </div>
     <h1>Test</h1>
-    <p>This event is {{ counter.oddOrEven }}</p>
+    <p>This event is {{ OddOrEven }}</p>
     <div class="editor">
       <h4>Edit 1</h4>
-      <input v-model="counter.title" type="text" value="" v-Autofocus />
+      <input v-model="counterData.title" type="text" value="" v-Autofocus />
     </div>
   </div>
 </template>

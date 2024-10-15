@@ -1,11 +1,24 @@
 <script setup>
+import { provide, reactive } from "vue";
 import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
+
+/*
+  User data
+*/
+
+const userData = reactive({
+  name: "XXXX",
+  userName: "mondoo",
+});
+
+provide("userData", userData);
 </script>
 
 <template>
+  <div class="user-data">{{ userData.name }} @ {{ userData.userName }}</div>
   <nav>
     <RouterLink to="/">Home222</RouterLink>
+    <RouterLink to="/modals">Modals 00</RouterLink>
     <RouterLink to="/post">Post</RouterLink>
   </nav>
   <RouterView />
@@ -72,5 +85,14 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
+}
+
+.user-data {
+  position: absolute;
+  background-color: blueviolet;
+  top: 0;
+  right: 0;
+  font-size: 12px;
+  padding: 5px;
 }
 </style>
